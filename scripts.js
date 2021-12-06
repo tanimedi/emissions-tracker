@@ -1,5 +1,12 @@
+async function getData() {
+    const response = await fetch('')
+    const data = await response.json()
+    console.log(data)
+  }
 
-    const labels =
+  getData();
+
+const labels =
         [
       "Alabama",
       "Alaska",
@@ -10,7 +17,7 @@
       "Connecticut"
     ];
 
-    const data ={
+const data ={
         labels:labels,
     datasets: [
       {
@@ -37,7 +44,7 @@
     ]
 }
 
- const config={
+const config={
   type: "bar",
   data: data,
   options: {
@@ -61,7 +68,9 @@
       }
  };
 
- window.onload = function() {
+
+ 
+  window.onload = function() {
  const ctx = document.getElementById('myChart');
  new Chart(ctx, config);
- }
+  }
