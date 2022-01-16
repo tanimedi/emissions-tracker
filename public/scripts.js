@@ -1,10 +1,3 @@
-
-const API_KEY='';
-
-const api1 = `http://api.eia.gov/series/?api_key=${API_KEY}&series_id=EMISS.CO2-TOTV-TT-TO-AL.A`
-const api2 = `http://api.eia.gov/series/?api_key=${API_KEY}&series_id=EMISS.CO2-TOTV-TT-TO-AK.A`
-const api3 = `http://api.eia.gov/series/?api_key=${API_KEY}&series_id=EMISS.CO2-TOTV-TT-TO-CT.A`
-
 // Fetch one api
 // async function getData(api) {
 //     const response = await fetch(api)
@@ -15,7 +8,17 @@ const api3 = `http://api.eia.gov/series/?api_key=${API_KEY}&series_id=EMISS.CO2-
 //      return dataArray
 // }
 
+
 function getData(){
+  
+console.log('hey')
+
+const api1 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-AL.A`
+const api2 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-AK.A`
+const api3 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-CT.A`
+
+
+
 const responses = Promise.all([
   fetch(api1),
   fetch(api2),
@@ -92,10 +95,9 @@ const responses = Promise.all([
           }
         }
    };
-  
     const ctx = document.getElementById('myChart');
     new Chart(ctx, config);
 })    
 }
 
-//getData()
+getData()
