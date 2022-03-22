@@ -1,3 +1,4 @@
+
 // Fetch one api
 // async function getData(api) {
 //     const response = await fetch(api)
@@ -11,14 +12,14 @@
 
 function getData(){
   
-console.log('hey')
-
+//console.log(api2);
+/*
 const api1 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-AL.A`
 const api2 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-AK.A`
 const api3 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-CT.A`
+*/
 
-
-
+console.log(api1);
 const responses = Promise.all([
   fetch(api1),
   fetch(api2),
@@ -45,21 +46,21 @@ const responses = Promise.all([
           labels:labels,
       datasets: [
         {
-          label: "Alabama",
+          label: state1,
           backgroundColor: "red",
           borderColor: "red",
           borderWidth: 1,
           data: dataArrays[0]
         },
         {
-          label: "Alaska",
+          label:state2,
           backgroundColor: "blue",
           borderColor: "blue",
           borderWidth: 1,
           data: dataArrays[1]
         },
         {
-          label: "Connecticut",
+          label: state3,
           backgroundColor: "yellow",
           borderColor: "green",
           borderWidth: 1,
@@ -101,3 +102,5 @@ const responses = Promise.all([
 }
 
 getData()
+
+
