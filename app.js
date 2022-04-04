@@ -12,10 +12,14 @@ app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-let api1, api2, api3 = "";
-let state1, state2, state3 = "";
+let api1 = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-AL.A`;
+let api2 = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-AK.A`;
+let api3 = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-AZ.A`;
+let state1= "Alabama";
+let state2= "Alaska";
+let state3= "Arizona";
 app.get('/', function(req, res) {
-  let api1='none';
+  
   res.render('index.html' , { api1: api1, api2: api2, api3: api3, state1: state1, state2: state2, state3: state3 });
 });
 
