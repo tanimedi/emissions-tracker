@@ -4,4 +4,12 @@
 
 body {
     background: rgb(165, 197, 159);
+    width: auto;
+    height: auto;
+    margin: 5% 5%;
+    border: 1px solid;
+  }
+  
+  h1 {
+    text-align: center;
   }

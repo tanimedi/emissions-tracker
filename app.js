@@ -18,9 +18,13 @@ let api3 = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TO
 let state1= "Alabama";
 let state2= "Alaska";
 let state3= "Arizona";
+let stateFuel = "Alabama";
+let coal = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-CO-AL.A`
+let petroleum = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-PE-AL.A`
+let naturalGas = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-NG-AL.A`
 app.get('/', function(req, res) {
   
-  res.render('index.html' , { api1: api1, api2: api2, api3: api3, state1: state1, state2: state2, state3: state3 });
+  res.render('index.html' , { api1: api1, api2: api2, api3: api3, state1: state1, state2: state2, state3: state3, stateFuel:stateFuel, coal:coal, petroleum:petroleum, naturalGas:naturalGas});
 });
 
 
@@ -81,8 +85,9 @@ app.post('/', function(req, res) {
   let state1 = req.body.state1;
   let state2 = req.body.state2;
   let state3 = req.body.state3;
+  let stateFuel = req.body.stateFuel;
 
-  console.log('***'+state1);
+  
 
   for (var key of Object.keys(obj)) {
    if (key = state1){
@@ -96,10 +101,16 @@ app.post('/', function(req, res) {
    if (key = state3){
    api3 = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-${obj[key]}.A`
    }
-  
+   if (key = stateFuel){
+    coal = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-CO-${obj[key]}.A`
+    petroleum = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-PE-${obj[key]}.A`
+    naturalGas = `https://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-NG-${obj[key]}.A`
+   } 
+   
+      
 }
 
-res.render('index.html' , { api1: api1, api2: api2, api3: api3, state1: state1, state2: state2, state3: state3 })
+res.render('index.html' , { api1: api1, api2: api2, api3: api3, state1: state1, state2: state2, state3: state3, stateFuel:stateFuel, coal:coal, petroleum:petroleum, naturalGas:naturalGas})
 });
 
   

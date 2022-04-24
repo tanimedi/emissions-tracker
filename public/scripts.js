@@ -19,7 +19,7 @@ const api2 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-T
 const api3 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-CT.A`
 */
 
-console.log(api1);
+
 const responses = Promise.all([
   fetch(api1),
   fetch(api2),
@@ -86,7 +86,7 @@ const responses = Promise.all([
           scales: {
               y: {
                   min: 0,
-                  max: 200,
+                  max: 500,
                   display: true,
                   title: {
                     display: true,
@@ -99,7 +99,90 @@ const responses = Promise.all([
     const ctx = document.getElementById('myChart');
     new Chart(ctx, config);
 })    
+
+const responses2 = Promise.all([
+  fetch(coal),
+  fetch(petroleum),
+  fetch(naturalGas)
+]).then(function (responses2){
+  
+  return Promise.all(responses2.map(function (response) {
+        return response.json();
+    }));
+}).then(function (dataObjs){
+  return Promise.all(dataObjs.map(function (dataObj) {
+        return dataObj.series[0].data.map(function(el) {
+              return el[1];
+            }).reverse()
+    }));
+}).then(function(dataArrays){
+  const labels = [];
+
+  for (var i = 1980; i <= 2018; i++) {
+     labels.push(i);
+  }
+  
+  const data ={
+          labels:labels,
+      datasets: [
+        {
+          label: "coal",
+          backgroundColor: "red",
+          borderColor: "red",
+          borderWidth: 1,
+          data: dataArrays[0]
+        },
+        {
+          label:"petroleum",
+          backgroundColor: "blue",
+          borderColor: "blue",
+          borderWidth: 1,
+          data: dataArrays[1]
+        },
+        {
+          label: "natural gas",
+          backgroundColor: "yellow",
+          borderColor: "green",
+          borderWidth: 1,
+          data: dataArrays[2]
+        }
+      ]
+  }
+  
+  const config={
+    type: "line",
+    data: data,
+    options: {
+          responsive: true,
+          legend: {
+            position: "top"
+          },
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'State CO2 Emissions'
+              }
+          },
+          scales: {
+              y: {
+                  min: 0,
+                  max: 500,
+                  display: true,
+                  title: {
+                    display: true,
+                    text: 'value'
+                  }
+                }
+          }
+        }
+   };
+    const ctx2 = document.getElementById('myChart2');
+    new Chart(ctx2, config);
+})    
+ 
+
 }
+
 
 getData()
 
