@@ -42,6 +42,8 @@ const responses = Promise.all([
      labels.push(i);
   }
   
+  Chart.defaults.font.size = 18;
+  Chart.defaults.color = '#000000';
   const data ={
           labels:labels,
       datasets: [
@@ -64,7 +66,8 @@ const responses = Promise.all([
           backgroundColor: "yellow",
           borderColor: "green",
           borderWidth: 1,
-          data: dataArrays[2]
+          data: dataArrays[2],
+          
         }
       ]
   }
@@ -74,13 +77,19 @@ const responses = Promise.all([
     data: data,
     options: {
           responsive: true,
-          legend: {
-            position: "top"
-          },
+          
           plugins: {
               title: {
                   display: true,
                   text: 'US CO2 Emissions'
+              },
+              legend: {
+            
+                position: "top",
+                  labels: {
+                      usePointStyle:true,
+                      
+                  }
               }
           },
           scales: {
@@ -90,7 +99,7 @@ const responses = Promise.all([
                   display: true,
                   title: {
                     display: true,
-                    text: 'value'
+                    text: 'million metric tons CO2'
                   }
                 }
           }
@@ -122,29 +131,34 @@ const responses2 = Promise.all([
      labels.push(i);
   }
   
+  Chart.defaults.font.size = 18;
+  Chart.defaults.color = '#000000';
   const data ={
           labels:labels,
       datasets: [
         {
           label: "coal",
-          backgroundColor: "red",
-          borderColor: "red",
+          backgroundColor: "#ff33cf",
+          borderColor: "#ff33cf",
           borderWidth: 1,
-          data: dataArrays[0]
+          data: dataArrays[0],
+          pointStyle: 'rectRot'
         },
         {
           label:"petroleum",
-          backgroundColor: "blue",
-          borderColor: "blue",
+          backgroundColor: "#6a33ff",
+          borderColor: "#6a33ff",
           borderWidth: 1,
-          data: dataArrays[1]
+          data: dataArrays[1],
+          pointStyle: 'rectRot'
         },
         {
           label: "natural gas",
-          backgroundColor: "yellow",
-          borderColor: "green",
+          backgroundColor: "#ff9033",
+          borderColor: "#ff9033",
           borderWidth: 1,
-          data: dataArrays[2]
+          data: dataArrays[2],
+          pointStyle: 'rectRot'
         }
       ]
   }
@@ -154,13 +168,19 @@ const responses2 = Promise.all([
     data: data,
     options: {
           responsive: true,
-          legend: {
-            position: "top"
-          },
+          
           plugins: {
               title: {
                   display: true,
                   text: 'State CO2 Emissions'
+              },
+              legend: {
+            
+                position: "top",
+                  labels: {
+                      usePointStyle:true,
+                      
+                  }
               }
           },
           scales: {
@@ -170,7 +190,7 @@ const responses2 = Promise.all([
                   display: true,
                   title: {
                     display: true,
-                    text: 'value'
+                    text: 'million metric tons CO2'
                   }
                 }
           }

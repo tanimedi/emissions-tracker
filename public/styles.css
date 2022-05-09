@@ -1,15 +1,29 @@
 #chart {
     width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 60px;
 }
+
+#chart2 {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 
 body {
     background: rgb(165, 197, 159);
     width: auto;
     height: auto;
     margin: 5% 5%;
-    border: 1px solid;
-  }
-  
-  h1 {
+    border: 2px solid;
     text-align: center;
+  }
+ 
+  h1 {
+    margin-bottom: 50px;
   }
