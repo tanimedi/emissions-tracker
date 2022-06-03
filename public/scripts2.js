@@ -1,10 +1,7 @@
 
 
 function getData2(){
-  
-    
-      
-    
+
     const responses2 = Promise.all([
       fetch(coal),
       fetch(petroleum),
@@ -83,11 +80,22 @@ function getData2(){
        };
         const ctx = document.getElementById('myChart2');
         new Chart(ctx, config);
-    })    
-    
-    }
+    })
+
+
+
+
+  }
     
     getData2()
-    
-    
+
+
+    // document.getElementById('dropdown4').onchange = function() {
+    //   localStorage.setItem('selectedtem', document.getElementById('dropdown4').value);
+    // };
+
+    // if (localStorage.getItem('selectedtem')) {
+    //   document.getElementById('dropdown4').options[localStorage.getItem('selectedtem')].selected = true;
+    // }
+  
     
