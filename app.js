@@ -170,7 +170,7 @@ app.post('/fuel_chart', function(req, res) {
    } 
 }
 
-console.log(req.body.stateFuel);
+//console.log(req.body.stateFuel);
 
 res.render('index.html' , {api1: api1, api2: api2, api3: api3, state1: state1, state2: state2, state3: state3, stateFuel:stateFuel, coal:coal, petroleum:petroleum, naturalGas:naturalGas})
 });
