@@ -1,25 +1,4 @@
-
-// Fetch one api
-// async function getData(api) {
-//     const response = await fetch(api)
-//     const data = await response.json()
-//     const dataArray = await data.series[0].data.map(function(el) {
-//         return el[1];
-//       })
-//      return dataArray
-// }
-
-
 function getData(){
-  
-//console.log(api2);
-/*
-const api1 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-AL.A`
-const api2 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-AK.A`
-const api3 = `http://api.eia.gov/series/?api_key=${eiaKey}&series_id=EMISS.CO2-TOTV-TT-TO-CT.A`
-*/
-
-
 const responses = Promise.all([
   fetch(api1),
   fetch(api2),

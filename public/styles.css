@@ -1,3 +1,19 @@
+  
+    select {
+      
+
+      width: 100px;
+      height: 50px;
+      line-height: 3;
+      background: rgb(161, 219, 164);
+      
+      border-radius: 5px;
+  }
+
+select option{
+  font-size: 20px;
+}
+
 #chart {
     width: 75%;
     margin-left: auto;
