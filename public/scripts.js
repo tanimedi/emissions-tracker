@@ -200,6 +200,13 @@ const responses2 = Promise.all([
     new Chart(ctx2, config);
 })    
  
+document.getElementById('dropdown4').onchange = function() {
+  localStorage.setItem('choice', document.getElementById('dropdown4').value);
+};
+
+if (localStorage.getItem('choice')) {
+  document.getElementById('dropdown4').value=localStorage.getItem('choice');
+}
 
 }
 
