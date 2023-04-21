@@ -34,7 +34,7 @@ const responses = Promise.all([
 }).then(function (dataObjs){
   return Promise.all(dataObjs.map(function (dataObj) {
 		return dataObj.response.data.map(function(el){
-      console.log(el.value)
+      // console.log(el.value)
       return el.value
     }
     ).reverse();
@@ -44,12 +44,12 @@ const responses = Promise.all([
 	}))
 }).then(function(dataArrays){
   const labels = [];
-  console.log("dataArrays")
-  console.log(dataArrays);
+  // console.log("dataArrays")
+  // console.log(dataArrays);
   for (var i = 1970; i <= 2020; i++) {
      labels.push(i);
   }
-  console.log(labels);
+  // console.log(labels);
   Chart.defaults.font.size = 18;
   Chart.defaults.color = '#000000';
   const data ={
@@ -129,7 +129,7 @@ const responses2 = Promise.all([
 }).then(function (dataObjs){
   return Promise.all(dataObjs.map(function (dataObj) {
         return dataObj.response.data.map(function(el){
-      console.log(el.value)
+      // console.log(el.value)
       return el.value
     }
     ).reverse();
@@ -182,7 +182,7 @@ const responses2 = Promise.all([
           plugins: {
               title: {
                   display: true,
-                  text: 'State CO2 Emissions'
+                  text: stateFuel + ' CO2 Emissions'
               },
               legend: {
             
