@@ -28,21 +28,28 @@ const responses = Promise.all([
 ]).then(function (responses){
   
   return Promise.all(responses.map(function (response) {
+     
 		return response.json();
 	}));
 }).then(function (dataObjs){
   return Promise.all(dataObjs.map(function (dataObj) {
-		return dataObj.series[0].data.map(function(el) {
-              return el[1];
-            }).reverse()
-	}));
+		return dataObj.response.data.map(function(el){
+      console.log(el.value)
+      return el.value
+    }
+    ).reverse();
+      // console.log("dataObj");
+      // console.log(dataObj.data);
+             
+	}))
 }).then(function(dataArrays){
   const labels = [];
-
-  for (var i = 1980; i <= 2018; i++) {
+  console.log("dataArrays")
+  console.log(dataArrays);
+  for (var i = 1970; i <= 2020; i++) {
      labels.push(i);
   }
-  
+  console.log(labels);
   Chart.defaults.font.size = 18;
   Chart.defaults.color = '#000000';
   const data ={
@@ -121,14 +128,16 @@ const responses2 = Promise.all([
     }));
 }).then(function (dataObjs){
   return Promise.all(dataObjs.map(function (dataObj) {
-        return dataObj.series[0].data.map(function(el) {
-              return el[1];
-            }).reverse()
+        return dataObj.response.data.map(function(el){
+      console.log(el.value)
+      return el.value
+    }
+    ).reverse();
     }));
 }).then(function(dataArrays){
   const labels = [];
 
-  for (var i = 1980; i <= 2018; i++) {
+  for (var i = 1970; i <= 2020; i++) {
      labels.push(i);
   }
   
