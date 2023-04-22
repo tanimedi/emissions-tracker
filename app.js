@@ -21,9 +21,11 @@ let state3= "Arizona";
 let stateFuel = "Alabama";
 
 
+
 let coal = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=AL&facets[sectorId][]=TT&facets[fuelId][]=CO&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`
 let petroleum = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=AL&facets[sectorId][]=TT&facets[fuelId][]=PE&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`
 let naturalGas = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=AL&facets[sectorId][]=TT&facets[fuelId][]=NG&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`
+
 
 app.get('/', function(req, res) {
 
@@ -97,11 +99,13 @@ app.post('/states_chart', function(req, res) {
    
   }
    if (key = state2){
+
    api2 = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=${obj[key]}&facets[sectorId][]=TT&facets[fuelId][]=TO&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`
    
   }
    if (key = state3){
    api3 = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=${obj[key]}&facets[sectorId][]=TT&facets[fuelId][]=TO&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`
+
    }  
 }
 
@@ -169,11 +173,13 @@ app.post('/fuel_chart', function(req, res) {
   for (var key of Object.keys(obj)) {
   
    if (key = stateFuel){
+
     coal = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=${obj[key]}&facets[sectorId][]=TT&facets[fuelId][]=CO&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`
     petroleum = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=${obj[key]}&facets[sectorId][]=TT&facets[fuelId][]=PE&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`
     naturalGas = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=${obj[key]}&facets[sectorId][]=TT&facets[fuelId][]=NG&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`
    } 
 }
+
 
 
 

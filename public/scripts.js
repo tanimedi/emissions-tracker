@@ -1,15 +1,3 @@
-
-// Fetch one api
-// async function getData(api) {
-//     const response = await fetch(api)
-//     const data = await response.json()
-//     const dataArray = await data.series[0].data.map(function(el) {
-//         return el[1];
-//       })
-//      return dataArray
-// }
-
-
 function getData(){
   
 //console.log(api2);

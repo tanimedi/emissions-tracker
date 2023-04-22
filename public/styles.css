@@ -1,3 +1,25 @@
+  
+    select {
+      
+      font-size: 20px;
+      text-align: center;
+      height: 30px;
+      line-height: 3;
+      
+      
+      border-radius: 5px;
+  }
+
+select option{
+  font-size: 20px;
+}
+
+input[type=submit] {
+  background: rgb(161, 219, 164);
+  border-radius: 5px;
+  font-size: 20px;
+}
+
 #chart {
     width: 75%;
     margin-left: auto;
@@ -24,6 +46,10 @@ body {
     text-align: center;
   }
  
-  h1 {
+  h3 {
     margin-bottom: 50px;
+  }
+
+  #listText {
+    font-size: 16px;
   }
