@@ -30,7 +30,7 @@ let naturalGas = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/
 app.get('/', function(req, res) {
 
 
-  res.render('index.html' , { api1: api1, api2: api2, api3: api3, state1: state1, state2: state2, state3: state3, stateFuel:stateFuel, coal:coal, petroleum:petroleum, naturalGas:naturalGas});
+  res.render('./index.html' , { api1: api1, api2: api2, api3: api3, state1: state1, state2: state2, state3: state3, stateFuel:stateFuel, coal:coal, petroleum:petroleum, naturalGas:naturalGas});
 });
 
 
