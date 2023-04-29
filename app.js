@@ -6,6 +6,8 @@ const path = require('path');
 var bodyParser = require("body-parser");
 const { ALL } = require('dns');
 
+app.set('views', path.join(__dirname,'views'));
+app.set('view engine', 'ejs');
 
 app.engine('html', require('ejs').renderFile);
 
