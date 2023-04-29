@@ -10,7 +10,7 @@ const { ALL } = require('dns');
 app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "./public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 let api1 = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=AL&facets[sectorId][]=TT&facets[fuelId][]=TO&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`;
 let api2 = `https://api.eia.gov/v2/co2-emissions/co2-emissions-aggregates/data/?api_key=${eiaKey}&frequency=annual&data[0]=value&facets[stateId][]=AK&facets[sectorId][]=TT&facets[fuelId][]=TO&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000`;
